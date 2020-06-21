@@ -1,0 +1,13 @@
+Cat:
+  name:  "Tom"
+  color:  "blue"
+  age: 3
+  gender:  "male"
+  hair: "short"
+
+Dog:
+  name:  "James"
+  color:  "yellow"
+  age: 3
+  gender:  "female"
+  hair: "long"
