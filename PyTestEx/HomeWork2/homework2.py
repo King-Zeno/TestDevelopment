@@ -1,58 +1,27 @@
 import pytest
+import yaml
 
-from PyTestEx.HomeWork2.test_1 import Calculator
-
+with open('datas.yml') as f:
+        datas = yaml.safe_load(f)
 
 class TestCal():
 
-        @pytest.mark.parametrize('a,b,c', [
-                ('a', 1, 'a1'),
-                (1, 1, 1),
-                (1, 2, 3),
-                (10, 20, 30),
-                (3, 4, 7),
-                (5, 6, 11)
-        ])
+        @pytest.mark.parametrize(('a', 'b', 'c'), datas['add'])
         def test_add(self, login, a, b, c):
-                self.cal = Calculator()
                 print("测试 相加")
-                assert c == self.cal.add(a, b)
+                assert c == login.add(a, b)
 
-        @pytest.mark.parametrize('a,b,c', [
-                ('a', 1, 'a1'),
-                (1, 1, 1),
-                (1, 2, 3),
-                (10, 20, 30),
-                (3, 4, 7),
-                (5, 6, 11)
-        ])
+        @pytest.mark.parametrize(('a', 'b', 'c'), datas['sub'])
         def test_sub(self, login, a, b, c):
-                self.cal = Calculator()
                 print("测试 相减")
-                assert c == self.cal.sub(a, b)
+                assert c == login.sub(a, b)
 
-        @pytest.mark.parametrize('a,b,c', [
-                ('a', 1, 'a1'),
-                (1, 1, 1),
-                (1, 2, 3),
-                (10, 20, 30),
-                (3, 4, 7),
-                (5, 6, 11)
-        ])
+        @pytest.mark.parametrize(('a', 'b', 'c'), datas['div'])
         def test_div(self, login, a, b, c):
-                self.cal = Calculator()
                 print("测试 相除")
-                assert c == self.cal.div(a, b)
+                assert c == login.div(a, b)
 
-        @pytest.mark.parametrize('a,b,c', [
-                ('a', 1, 'a1'),
-                (1, 1, 1),
-                (1, 2, 3),
-                (10, 20, 30),
-                (3, 4, 7),
-                (5, 6, 11)
-        ])
+        @pytest.mark.parametrize(('a', 'b', 'c'), datas['mul'])
         def test_mul(self, login, a, b, c):
-                self.cal = Calculator()
                 print("测试 相乘")
-                assert c == self.cal.mul(a, b)
+                assert c == login.mul(a, b)
