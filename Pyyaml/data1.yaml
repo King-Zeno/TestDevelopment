@@ -1,8 +1,41 @@
-a: 1
-b:
-  c: 3
-  d: 4
+#a: 1
+#b:
+#  c: 3
+#  d: 4
 
-- a
-- b
-- c
+#列表格式
+#- a
+#- b
+#- c
+#Companies:
+#  -
+#    id: 1
+#    name: company1
+#    price: 200W
+#
+#  -
+#    id: 2
+#    name: company2
+#    price: 500W
+#
+#  -
+#    str1: "string string1 string2"
+#    int1: 10
+#    float1: 3.14
+#    bool1: true
+#    bool2: false
+#    none1: ~
+#    datetime: 2020-06-21
+#    int2: !!str 20
+
+defaults: &defaults
+  adapter:  postgres
+  host:     localhost
+
+development:
+  database: myapp_development
+  <<: *defaults
+
+test:
+  database: myapp_test
+  <<: *defaults
